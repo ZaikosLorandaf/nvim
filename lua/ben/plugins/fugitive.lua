@@ -10,7 +10,7 @@ return {
 		vim.keymap.set("n", "<leader>gd", ":G difftool<CR>")
 		vim.keymap.set("n", "<leader>gm", ":Gvdiffsplit!<CR>")
 		vim.keymap.set("n", "<leader>gc", ":G commit<CR>")
-		vim.keymap.set("n", "<leader>gps", ":G push<CR>")
+		vim.keymap.set("n", "<leader>gpp", ":G push<CR>")
 		vim.keymap.set("n", "<leader>gpl", ":G pull<CR>")
 	end,
 }
