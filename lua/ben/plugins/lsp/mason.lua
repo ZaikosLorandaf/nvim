@@ -34,11 +34,18 @@ return {
 				"cssls",
 				"tailwindcss",
 				"svelte",
+				"gopls",
+				"texlab",
 				"lua_ls",
 				"graphql",
 				"emmet_ls",
 				"prismals",
 				"pyright",
+				"dockerls",
+				"docker_compose_language_service",
+				"clangd",
+				"cmake",
+				"bashls",
 			},
 			-- auto-install configured servers (with lspconfig)
 			automatic_installation = true, -- not the same as ensure_installed
