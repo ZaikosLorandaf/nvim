@@ -1,7 +1,16 @@
 return {
 	"nvim-telescope/telescope.nvim",
 	branch = "0.1.x",
-	dependencies = { "nvim-lua/plenary.nvim" },
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+		{
+			"joaomsa/telescope-orgmode.nvim",
+			event = "VeryLazy",
+			config = function()
+				require("telescope").load_extension("orgmode")
+			end,
+		},
+	},
 	keys = { -- LazyLoad telescope when it's actually needed
 
 		-- F.ind F.iles
@@ -21,5 +30,8 @@ return {
 
 		-- F.ind C.olor S.cheme
 		{ "<leader>fcs", '<cmd>lua require("telescope.builtin").colorscheme()<cr>' },
+
+		-- F.ing O.rgmode
+		{ "<leader>fo", '<cmd>lua require("telescope").extensions.orgmode.seach_headings()<cr>' },
 	},
 }

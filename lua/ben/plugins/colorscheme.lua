@@ -1,8 +1,21 @@
 return {
+	-- Treesitter optimized colorscheme
+	{
+		"neanias/everforest-nvim",
+		priority = 1000,
+		version = false,
+		config = function()
+			require("everforest").setup({})
+			vim.cmd([[set tgc]]) -- Terminal GUI Colors
+			vim.cmd([[set lz]]) -- Lazy redraw
+			vim.cmd([[set t_Co=256]]) -- 256 Colors
+			vim.cmd([[colorscheme everforest]])
+		end,
+	},
 	-- My very own colorscheme
 	{
 		"ChausseBenjamin/friffle-vim",
-		priority = 1000,
+		lazy = true,
 		config = function()
 			vim.cmd([[syntax on]]) -- Enable vim syntax
 			vim.cmd([[set tgc]]) -- Terminal GUI Colors
@@ -23,19 +36,5 @@ return {
 	{
 		"djpohly/elly.vim",
 		lazy = true,
-	},
-	-- Treesitter optimized colorscheme
-	{
-		"neanias/everforest-nvim",
-		version = false,
-		lazy = true,
-		config = function()
-			require("everforest").setup({})
-		end,
-	},
-	-- Syntax for SXHKD
-	{
-		"kovetskiy/sxhkd-vim",
-		ft = "sxhkdrc",
 	},
 }

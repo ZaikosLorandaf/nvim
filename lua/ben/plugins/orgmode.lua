@@ -2,6 +2,26 @@ return {
 	"nvim-orgmode/orgmode",
 	dependencies = {
 		{ "nvim-treesitter/nvim-treesitter", lazy = true },
+		{ "dhruvasagar/vim-table-mode", lazy = true },
+		{
+			"akinsho/org-bullets.nvim",
+			enable = false,
+			lazy = true,
+			config = function()
+				require("org-bullets").setup({
+					symbols = {
+						concealcursor = false,
+						list = "",
+						headlines = { "◉", "○", "󰮍", "󱥸" },
+						checkboxes = {
+							half = { "", "OrgTSCheckboxHalfChecked" },
+							done = { "", "OrgTSCheckboxDone" },
+							todo = { "", "OrgTSCheckboxTODO" },
+						},
+					},
+				})
+			end,
+		},
 	},
 	event = "VeryLazy",
 	config = function()

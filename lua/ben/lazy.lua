@@ -1,4 +1,3 @@
-
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
@@ -12,11 +11,11 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
-	{import = "ben.plugins" },
-	{import = "ben.plugins.lsp" },
+	{ import = "ben.plugins" },
+	{ import = "ben.plugins.lsp" },
 }, {
 	install = {
-		colorscheme = { "friffle" },
+		colorscheme = { "everforest" },
 	},
 	checker = {
 		enabled = true,
