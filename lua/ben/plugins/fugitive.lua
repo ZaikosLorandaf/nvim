@@ -7,7 +7,7 @@ return {
 		{ "<leader>gd", "<cmd>G difftool<CR>" }, -- G.it D.iff
 		{ "<leader>gm", "<cmd>Gvdiffsplit!<CR>" }, -- G.it M.erge
 		{ "<leader>gc", "<cmd>G commit<CR>" }, -- G.it C.ommit
-		{ "<leader>gpu", "<cmd>G push<CR>" }, -- G.it P.ush U.pstream
-		{ "<leader>gpl", "<cmd>G pull<CR>" }, -- G.it P.ull L.atest
+		{ "<leader>gu", "<cmd>G push<CR>" }, -- G.it push U.pstream
+		{ "<leader>gp", "<cmd>G pull<CR>" }, -- G.it P.ull
 	},
 }
