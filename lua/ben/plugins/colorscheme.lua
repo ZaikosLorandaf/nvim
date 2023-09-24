@@ -2,14 +2,15 @@ return {
 	-- Treesitter optimized colorscheme
 	{
 		"neanias/everforest-nvim",
-		priority = 1000,
 		version = false,
+		priority = 1000,
 		config = function()
-			require("everforest").setup({})
-			vim.cmd([[set tgc]]) -- Terminal GUI Colors
-			vim.cmd([[set lz]]) -- Lazy redraw
-			vim.cmd([[set t_Co=256]]) -- 256 Colors
-			vim.cmd([[colorscheme everforest]])
+			require("everforest").setup({
+				background = "hard",
+				italics = true,
+				transparent_background_level = 2,
+			})
+			require("everforest").load()
 		end,
 	},
 	-- My very own colorscheme
