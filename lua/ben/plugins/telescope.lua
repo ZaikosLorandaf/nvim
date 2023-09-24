@@ -5,7 +5,7 @@ return {
 		"nvim-lua/plenary.nvim",
 		{
 			"joaomsa/telescope-orgmode.nvim",
-			event = "VeryLazy",
+			lazy = true,
 			config = function()
 				require("telescope").load_extension("orgmode")
 			end,
