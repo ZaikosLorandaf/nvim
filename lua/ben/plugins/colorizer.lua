@@ -1,4 +1,4 @@
 return {
 	"chrisbra/Colorizer",
-	event = "VeryLazy",
+	event = { "BufReadPre", "BufNewFile" },
 }
