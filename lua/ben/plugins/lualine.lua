@@ -7,8 +7,10 @@ return {
 			options = {
 				theme = "everforest",
 				icons_enabled = true,
-				section_separators = { left = "", right = "" },
-				component_separators = { left = "", right = "" },
+				-- section_separators = { left = "", right = "" },
+				section_separators = { left = "▓", right = "▓" },
+				-- component_separators = { left = "", right = "" },
+				component_separators = { left = "░", right = "░" },
 				globalstatus = false,
 				ignore_focus = {},
 				always_divide_middle = true,
