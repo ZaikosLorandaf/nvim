@@ -1,6 +1,5 @@
 return {
-	-- Treesitter optimized colorscheme
-	{
+	{ -- Treesitter-optimized colorscheme:
 		"neanias/everforest-nvim",
 		version = false,
 		priority = 1000,
@@ -13,8 +12,7 @@ return {
 			require("everforest").load()
 		end,
 	},
-	-- My very own colorscheme
-	{
+	{ -- My very own colorscheme
 		"ChausseBenjamin/friffle-vim",
 		lazy = true,
 		config = function()
@@ -33,8 +31,7 @@ return {
 			vim.cmd([[hi Search guifg='#810002' guibg='#738c9c']])
 		end,
 	},
-	-- Backup retro colorscheme
-	{
+	{ -- Backup retro colorscheme
 		"djpohly/elly.vim",
 		lazy = true,
 	},

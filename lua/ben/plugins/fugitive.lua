@@ -1,5 +1,9 @@
 return {
 	"tpope/vim-fugitive",
+	-- Only load if git is installed
+	cond = function()
+		return vim.fn.executable("git")
+	end,
 	dependencies = "tpope/vim-rhubarb",
 	-- Only enable when in a git repo
 	keys = {
