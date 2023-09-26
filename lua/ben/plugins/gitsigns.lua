@@ -1,8 +1,8 @@
 return {
 	"lewis6991/gitsigns.nvim",
-	-- Only load if git is installed
+	-- Only enable if git is installed
 	cond = function()
-		return vim.fn.executable("git")
+		return vim.fn.executable("git") == 1
 	end,
 	event = { "BufReadPre", "BufNewFile" },
 	config = true,

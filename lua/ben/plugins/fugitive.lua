@@ -1,11 +1,11 @@
 return {
 	"tpope/vim-fugitive",
-	-- Only load if git is installed
-	cond = function()
-		return vim.fn.executable("git")
-	end,
 	dependencies = "tpope/vim-rhubarb",
-	-- Only enable when in a git repo
+	-- Only enable on systems with git installed
+	cond = function()
+		return vim.fn.executable("git") == 1
+	end,
+	-- Only load when using one of the following commands:
 	keys = {
 		{ "<leader>gs", "<cmd>G<CR>" }, -- G.it S.tatus
 		{ "<leader>gd", "<cmd>G difftool<CR>" }, -- G.it D.iff

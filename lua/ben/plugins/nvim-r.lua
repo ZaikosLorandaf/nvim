@@ -1,8 +1,8 @@
 return {
 	"jalvesaq/Nvim-R",
-	-- Only load if R is installed
+	-- Only enable if R is installed
 	cond = function()
-		return vim.fn.executable("R")
+		return vim.fn.executable("R") == 1
 	end,
 	ft = { "R", "Rnoweb", "tex", "aux", "bib" },
 	config = function()

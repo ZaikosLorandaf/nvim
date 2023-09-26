@@ -1,6 +1,6 @@
 return {
 	"ray-x/go.nvim",
-	-- Only load if go is installed
+	-- Only if Go is installed
 	cond = function()
 		return vim.fn.executable("go")
 	end,

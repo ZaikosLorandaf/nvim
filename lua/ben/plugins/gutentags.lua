@@ -1,8 +1,8 @@
 return {
 	"ludovicchabant/vim-gutentags",
-	-- Only load if ctags are installed
-	cond = function()
-		return vim.fn.executable("ctags")
+	-- Only enable if ctags is installed
+	condition = function()
+		return vim.fn.executable("ctags") == 1
 	end,
 	event = { "BufReadPre", "BufNewFile" },
 }
