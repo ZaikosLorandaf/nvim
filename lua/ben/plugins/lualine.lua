@@ -5,7 +5,7 @@ return {
 	config = function()
 		require("lualine").setup({
 			options = {
-				theme = "everforest",
+				theme = "terafox",
 				icons_enabled = true,
 				-- section_separators = { left = "", right = "" },
 				section_separators = { left = "▓", right = "▓" },
