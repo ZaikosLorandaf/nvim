@@ -2,8 +2,8 @@ return {
 	-- Treesitter optimized colorscheme
 	{
 		"neanias/everforest-nvim",
+		priority = 1000,
 		version = false,
-		lazy = true,
 		config = function()
 			require("everforest").setup({
 				background = "hard",
@@ -36,7 +36,8 @@ return {
 	-- A multi-themed plugin
 	{
 		"EdenEast/nightfox.nvim",
-		priority = 1000,
+		-- priority = 1000,
+		lazy = true,
 		config = function()
 			require("nightfox").setup({
 				options = {
