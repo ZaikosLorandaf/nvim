@@ -3,7 +3,7 @@ return {
 	{
 		"neanias/everforest-nvim",
 		version = false,
-		lazy = true,
+		priority = 1000,
 		config = function()
 			require("everforest").setup({
 				background = "hard",
@@ -36,7 +36,8 @@ return {
 	-- A multi-themed plugin
 	{
 		"EdenEast/nightfox.nvim",
-		priority = 1000,
+		-- priority = 1000,
+		lazy = true,
 		config = function()
 			require("nightfox").setup({
 				options = {
