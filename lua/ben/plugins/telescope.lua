@@ -9,19 +9,19 @@ return {
 		-- F.ind F.iles
 		{ "<leader>ff", '<cmd>lua require("telescope.builtin").find_files()<cr>' },
 
-		-- F.ind B.uffers
-		{ "<leader>fb", '<cmd>lua require("telescope.builtin").buffers()<cr>' },
-
-		-- F.ind G.it
-		{ "<leader>fg", '<cmd>lua require("telescope.builtin").git_files()<cr>' },
-
 		-- F.ind H.elp
 		{ "<leader>fh", '<cmd>lua require("telescope.builtin").help_tags()<cr>' },
 
-		-- F.ind Q.uick F.ix
-		{ "<leader>fqf", '<cmd>lua require("telescope.builtin").quickfix()<cr>' },
+		-- F.ind Q.uickfix
+		{ "<leader>fq", '<cmd>lua require("telescope.builtin").quickfix()<cr>' },
 
-		-- F.ind C.olor S.cheme
-		{ "<leader>fcs", '<cmd>lua require("telescope.builtin").colorscheme()<cr>' },
+		-- F.ind G.it (files known to git / not ignored or untracked)
+		{ "<leader>fg", '<cmd>lua require("telescope.builtin").git_files()<cr>' },
+
+		-- F.ind C.ommit ( checkout )
+		{ "<leader>fc", '<cmd>lua require("telescope.builtin").git_commits()<cr>' },
+
+		-- F.ind B.ranch
+		{ "<leader>fs", '<cmd>lua require("telescope.builtin").grep_branches()<cr>' },
 	},
 }
