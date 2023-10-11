@@ -24,4 +24,13 @@ return {
 		-- F.ind B.ranch
 		{ "<leader>fs", '<cmd>lua require("telescope.builtin").grep_branches()<cr>' },
 	},
+	cmd = {
+		"Telescope",
+		"TelescopeFindFiles",
+		"TelescopeFindHelp",
+		"TelescopeQuickfix",
+		"TelescopeGitFiles",
+		"TelescopeGitCommits",
+		"TelescopeGrepBranches",
+	},
 }
