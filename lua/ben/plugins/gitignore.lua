@@ -8,11 +8,11 @@ return {
 			end,
 		},
 	},
+	cond = function()
+		return vim.fn.executable("python3") == 1
+	end,
 	build = function()
 		vim.cmd([[UpdateRemotePlugins]])
 	end,
-	filetype = "gitignore",
-	keys = {
-		{ "<leader>gi", "<cmd>FzfGitignore<cr>" },
-	},
+	ft = "gitignore",
 }
