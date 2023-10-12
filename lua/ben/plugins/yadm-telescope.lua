@@ -1,5 +1,5 @@
 return {
-	"pschitt/telescope-yadm.nvim",
+	"pschmitt/telescope-yadm.nvim",
 	dependencies = { "nvim-telescope/telescope.nvim" },
 	cond = function()
 		return vim.fn.executable("yadm") == 1

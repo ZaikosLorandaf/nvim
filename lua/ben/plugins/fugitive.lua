@@ -13,6 +13,7 @@ return {
 		{ "<leader>gc", "<cmd>G commit<CR>" }, -- G.it C.ommit
 		{ "<leader>gu", "<cmd>G push<CR>" }, -- G.it push U.pstream
 		{ "<leader>gp", "<cmd>G pull<CR>" }, -- G.it P.ull
+		{ "<leader>gf", "<cmd>G fetch<CR>" }, -- G.it F.etch
 	},
 	config = function()
 		-- Use > and < to fix merge conflicts (keep the cursor in the middle of the screen)
