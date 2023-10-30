@@ -9,6 +9,9 @@ vim.keymap.set("n", "<space>", ":")
 -- Set encoding to UTF-8
 vim.opt.encoding = "utf-8"
 
+-- Do not lazy redraw
+vim.opt.lazyredraw = false
+
 -- Display all matching files when tab completing
 vim.opt.wildmenu = true
 
@@ -43,10 +46,6 @@ vim.opt.foldmethod = "marker"
 vim.opt.complete:append("kspell") -- Better Spell Checking
 vim.opt.spelllang = "fr" -- French prose
 
--- Tag Editing
-vim.api.nvim_set_keymap("i", "<leader>t", "<++>", { noremap = true })
-vim.api.nvim_set_keymap("i", "<leader>:", '<Esc>/<++><CR>"_c4l', { noremap = true })
-
 -- Quickly save
 vim.api.nvim_set_keymap("n", "<Leader>w", ":update<CR>", { silent = true })
 
@@ -57,10 +56,10 @@ vim.api.nvim_set_keymap("n", "Y", "y$", {})
 vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", {})
 
 -- Split motion
-vim.api.nvim_set_keymap("n", "<C-h>", "<C-w>h", {})
-vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", {})
-vim.api.nvim_set_keymap("n", "<C-k>", "<C-w>k", {})
-vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", {})
+vim.api.nvim_set_keymap("n", "<C-H>", "<C-w>h", {})
+vim.api.nvim_set_keymap("n", "<C-J>", "<C-w>j", {})
+vim.api.nvim_set_keymap("n", "<C-K>", "<C-w>k", {})
+vim.api.nvim_set_keymap("n", "<C-L>", "<C-w>l", {})
 
 -- Saving and quitting buffers
 vim.api.nvim_set_keymap("n", "ZF", "ZQ", {})

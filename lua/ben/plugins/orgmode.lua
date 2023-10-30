@@ -18,7 +18,10 @@ return {
 		-- Setup orgmode
 		require("orgmode").setup({
 			org_agenda_files = "~/Dropbox/org/*",
-			org_default_notes_file = "~/Dropbox/org/refile.org",
+			org_default_notes_file = "~/Dropbox/org/inbox.org",
+			org_archive_location = "~/Dropbox/org/archive.org",
 		})
+
+		-- Custom keybindings
 	end,
 }
