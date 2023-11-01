@@ -8,8 +8,10 @@ return {
         theme = "everforest",
         icons_enabled = true,
         -- section_separators = { left = "", right = "" },
-        section_separators = { left = "▓", right = "▓" },
         -- component_separators = { left = "", right = "" },
+        -- component_separators = { left = "", right = "" },
+        -- section_separators = { left = "", right = "" },
+        section_separators = { left = "▓", right = "▓" },
         component_separators = { left = "░", right = "░" },
         globalstatus = false,
         ignore_focus = {},
@@ -40,7 +42,12 @@ return {
       winbar = {},
       extensions = {},
     })
-    -- set noshowmode to remove the useless -- INSERT -- text
+    -- Remove duplicate information that clutters the bottom of the screen
+    -- "-- INSERT --" on the left:
     vim.opt.showmode = false
+    -- "100%" linenr/col on the right:
+    vim.opt.ruler = false
+    -- commands on the right:
+    vim.opt.showcmd = false
   end,
 }
