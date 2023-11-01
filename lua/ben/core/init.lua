@@ -65,6 +65,9 @@ vim.api.nvim_set_keymap("n", "<C-L>", "<C-w>l", {})
 vim.api.nvim_set_keymap("n", "ZF", "ZQ", {})
 vim.api.nvim_set_keymap("n", "<leader>w", ":update<CR>", { silent = true })
 
+-- Enter vim's F.ile M.anager
+vim.api.nvim_set_keymap("n", "<leader>fm", ":e .<CR>", { silent = true })
+
 -- Remove trailing white spaces on BufWritePre
 vim.cmd([[autocmd BufWritePre * %s/\s\+$//e]])
 
