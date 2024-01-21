@@ -12,7 +12,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	{ import = "ben.plugins" },
-	{ import = "ben.plugins.lsp" },
 }, {
 	install = {
 		colorscheme = { "everforest" },

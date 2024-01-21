@@ -6,7 +6,7 @@ return {
   },
   config = function()
     vim.g.lf_netrw = 1
-    require("lf").setup({
+    local lf = require("lf").setup({
       border = "rounded",
       focus_on_open = true,
     })

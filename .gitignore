@@ -4,6 +4,7 @@
 ### Lua ###
 # Compiled Lua sources
 luac.out
+.luarc.json
 
 # luarocks build files
 *.src.rock
