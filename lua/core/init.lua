@@ -13,7 +13,7 @@ vim.opt.expandtab=true
 vim.opt.foldmethod="marker" --- For `{{{` & `}}}` folding
 vim.opt.complete:append("kspell")
 vim.opt.spelllang="fr" -- why does french exist...
-vim.api.nvim_set_keymap("n","Y","y$", {}) -- Better motion for `Y`
+vim.api.nvim_set_keymap("n","Y","y$", {}) -- What should have been `Y`
 vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", {}) -- terminal mode Esc
 
 vim.keymap.set("v", "<s-l>", ":m '>+1<CR>gv=gv")
@@ -23,4 +23,3 @@ vim.keymap.set("v", "<s-h>", ":m '<-2<CR>gv=gv")
 vim.g.netrw_liststyle = 3
 vim.g.netrw_banner = 0
 vim.g.netrw_bufsettings = "noma nomod nu nobl nowrap ro"
-
