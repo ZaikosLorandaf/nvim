@@ -1,6 +1,19 @@
 return {
+  lazy = false,
   "tpope/vim-fugitive",
   dependencies = "tpope/vim-rhubarb",
+  config = function()
+
+    local handle = io.popen('git rev-parse --is-inside-work-tree 2> /dev/null')
+    if handle then
+      local result = handle:read('*a')
+      handle:close()
+      if result and result:match('true') then
+        vim.cmd([[Gcd]])
+      end
+    end
+
+  end,
   -- Only load when using one of the following commands:
   keys = {
     { "<leader>gs", "<cmd>G<CR>" }, -- G.it S.tatus
