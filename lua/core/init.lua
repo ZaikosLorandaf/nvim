@@ -23,17 +23,3 @@ vim.keymap.set("v", "<s-h>", ":m '<-2<CR>gv=gv")
 vim.g.netrw_liststyle = 3
 vim.g.netrw_banner = 0
 vim.g.netrw_bufsettings = "noma nomod nu nobl nowrap ro"
-
-local function set_git_root_dir()
-  local git_dir = vim.fn.finddir('.git', '.;')
-  if git_dir ~= '' then
-    local git_root = vim.fn.fnamemodify(git_dir, ':h')
-    vim.cmd('cd ' .. git_root)
-  end
-end
-
-vim.api.nvim_create_autocmd('VimEnter', {
-  pattern = '*',
-  callback = set_git_root_dir
-})
-
