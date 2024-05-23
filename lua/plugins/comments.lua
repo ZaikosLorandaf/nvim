@@ -1,5 +1,5 @@
 return {
-	'numToStr/Comment.nvim',
+	'tpope/vim-commentary',
 	event = { 'BufReadPre', 'BufNewFile' },
-	config = true,
 }
+

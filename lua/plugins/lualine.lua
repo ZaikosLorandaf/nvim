@@ -5,14 +5,10 @@ return {
   config = function()
     require("lualine").setup({
       options = {
-        theme = "everforest",
+        theme = "no-clown-fiesta",
         icons_enabled = true,
-        -- section_separators = { left = "", right = "" },
-        -- component_separators = { left = "", right = "" },
-        -- component_separators = { left = "", right = "" },
-        -- section_separators = { left = "", right = "" },
-        section_separators = { left = "▓", right = "▓" },
-        component_separators = { left = "░", right = "░" },
+        section_separators = { left = "", right = "" },
+        component_separators = { left = "", right = "" },
         globalstatus = false,
         ignore_focus = {},
         always_divide_middle = true,
@@ -26,7 +22,7 @@ return {
         lualine_a = { "mode" },
         lualine_b = { "branch" },
         lualine_c = { "filename" },
-        lualine_x = { "encoding", "fileformat", "filetype" },
+        lualine_x = { "filetype" },
         lualine_y = { "progress" },
         lualine_z = { "location" },
       },
@@ -40,7 +36,7 @@ return {
       },
       tabline = {},
       winbar = {},
-      extensions = {},
+      extensions = {'fugitive'},
     })
     -- Remove duplicate information that clutters the bottom of the screen
     -- "-- INSERT --" on the left:
