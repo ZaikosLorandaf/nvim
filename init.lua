@@ -22,6 +22,8 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     { import = "plugins" }, -- i.e. the lua/plugins directory
     -- add more subdirectories as needed
+  }, { 
+    install = { colorscheme = { "no-clown-fiesta" }, }
   }, {
     checker = {
       enabled = true,

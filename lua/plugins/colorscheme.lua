@@ -31,6 +31,7 @@ return { -- No nonsense, very stoic
         lsp = { underline = true },
       },
     })
+    local fullbg = "#111a1f"
     vim.cmd.colorscheme('no-clown-fiesta')
     vim.api.nvim_set_hl(0,"LineNr",{fg="#727272"})
     -- vim.api.nvim_set_hl(0,"Visual",{bg="#171717"})
@@ -39,5 +40,9 @@ return { -- No nonsense, very stoic
     vim.api.nvim_set_hl(0,"VertSplit",{bg="none",fg="#727272"})
     vim.api.nvim_set_hl(0,"WinSeparator",{bg="none",fg="#727272"})
     vim.api.nvim_set_hl(0,"StatusLine",{bg="none",fg="#727272"})
+    vim.api.nvim_set_hl(0,"LazyNormal",{bg=fullbg})
+    -- vim.api.nvim_set_hl(0,"MasonNormal",{bg=fullbg})
+    vim.api.nvim_set_hl(0,"NormalFloat",{bg=fullbg})
+    vim.api.nvim_set_hl(0,"FloatBorder",{bg="none",fg=fullbg})
   end,
 }

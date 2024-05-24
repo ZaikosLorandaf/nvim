@@ -21,6 +21,9 @@ return {
 
 		-- F.ind B.ranch
 		{ "<leader>fb", '<cmd>lua require("telescope.builtin").grep_branches()<cr>' },
+
+		-- F.ix L.ist
+		{ "<leader>fl", "<cmd>Telescope diagnostics<cr>" }
 	},
 	cmd = {
 		"Telescope",
