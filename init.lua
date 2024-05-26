@@ -5,6 +5,7 @@
 -- |_|_| |_|_|\__(_)_|\__,_|\__,_|
 --                                
 require("core")
+require("core.langmap")
 
 -- Lazy Plugins Bootstrap {{{
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

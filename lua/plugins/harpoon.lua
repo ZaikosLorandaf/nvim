@@ -7,7 +7,8 @@ return {
   },
   config = function()
     local harpoon = require("harpoon")
-    harpoon:setup({})
+
+    harpoon:setup()
 
     -- -- basic telescope config
     -- local conf = require("telescope.config").values
@@ -39,6 +40,6 @@ return {
     vim.keymap.set("n", "<C-;>", function() harpoon:list():select(5)end )
 
     vim.keymap.set("n", "<C-S-P>", function() harpoon:list():prev() end)
-    vim.keymap.set("n", "<C-S-P>", function() harpoon:list():next() end)
+    vim.keymap.set("n", "<C-S-N>", function() harpoon:list():next() end)
   end,
 }

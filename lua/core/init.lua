@@ -4,8 +4,9 @@ vim.opt.wildmenu=true -- Show mathes with tab-completion
 vim.opt.number=true
 vim.opt.relativenumber=true
 vim.opt.ruler=true
--- vim.opt.laststatus=0
-vim.opt.laststatus=3
+vim.opt.lazyredraw=true
+vim.opt.laststatus=0
+vim.opt.showmode=false
 vim.opt.splitbelow=true
 vim.opt.splitright=true
 vim.opt.tabstop=2
@@ -13,6 +14,7 @@ vim.opt.shiftwidth=2
 vim.opt.expandtab=true
 vim.opt.foldmethod="marker" --- For `{{{` & `}}}` folding
 vim.opt.complete:append("kspell")
+vim.opt.inccommand="split"
 vim.opt.spelllang="fr" -- why does french exist...
 vim.api.nvim_set_keymap("n","Y","y$", {}) -- What should have been `Y`
 vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", {}) -- terminal mode Esc
@@ -25,11 +27,18 @@ vim.g.netrw_liststyle = 3
 vim.g.netrw_banner = 0
 vim.g.netrw_bufsettings = "noma nomod nu nobl nowrap ro"
 
--- Navigate splits
-vim.keymap.set("n", "<C-S-h>", "<C-w>h")
-vim.keymap.set("n", "<C-S-j>", "<C-w>j")
-vim.keymap.set("n", "<C-S-k>", "<C-w>k")
-vim.keymap.set("n", "<C-S-l>", "<C-w>l")
-
 -- Clear search highlights
 vim.keymap.set("n", "<C-/>", ":nohlsearch<cr>")
+
+-- Don't mess with pasted text
+vim.keymap.set("i", "<C-r>+","<C-r><C-o>+")
+
+-- Remove trailing whitespace (exept current line to avoid moving cursor)
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+    pattern = {"*"},
+    callback = function()
+      local save_cursor = vim.fn.getpos(".")
+      pcall(function() vim.cmd [[%s/\s\+$//e]] end)
+      vim.fn.setpos(".", save_cursor)
+    end,
+})

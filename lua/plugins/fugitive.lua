@@ -4,14 +4,17 @@ return {
   dependencies = "tpope/vim-rhubarb",
   config = function()
 
-    local handle = io.popen('git rev-parse --is-inside-work-tree 2> /dev/null')
-    if handle then
-      local result = handle:read('*a')
-      handle:close()
-      if result and result:match('true') then
-        vim.cmd([[Gcd]])
-      end
-    end
+    -- The following seems to break harpoon 
+    -- it's supposed to auto-cd to the git root on vim startup
+   
+    -- local handle = io.popen('git rev-parse --is-inside-work-tree 2> /dev/null')
+    -- if handle then
+    --   local result = handle:read('*a')
+    --   handle:close()
+    --   if result and result:match('true') then
+    --     vim.cmd([[Gcd]])
+    --   end
+    -- end
 
   end,
   -- Only load when using one of the following commands:
