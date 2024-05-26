@@ -28,7 +28,7 @@ vim.g.netrw_banner = 0
 vim.g.netrw_bufsettings = "noma nomod nu nobl nowrap ro"
 
 -- Clear search highlights
-vim.keymap.set("n", "<C-/>", ":nohlsearch<cr>")
+vim.keymap.set("n", "<leader><leader>l", "<cmd>nohlsearch<cr>")
 
 -- Don't mess with pasted text
 vim.keymap.set("i", "<C-r>+","<C-r><C-o>+")

@@ -19,9 +19,14 @@ return {
       -- Global so it can be used by both mason and lspconfig ;)
       local myServers = {
         "gopls",
+        "golangci_lint_ls",
         "lua_ls",
         "bashls",
         "graphql",
+        "texlab",
+        "clangd",
+        "dockerls",
+        "docker_compose_language_service",
         "rust_analyzer",
       }
       mlsp.setup({
@@ -86,10 +91,15 @@ return {
 
       -- Configure every lsp installed and managed by mason
       -- TODO: automate this with a global myServers table
-      lsp["gopls"].setup({         capabilities = lspCaps, on_attach = lspMaps })
-      lsp["bashls"].setup({        capabilities = lspCaps, on_attach = lspMaps })
-      lsp["graphql"].setup({       capabilities = lspCaps, on_attach = lspMaps })
-      lsp["rust_analyzer"].setup({ capabilities = lspCaps, on_attach = lspMaps })
+      lsp["gopls"].setup({            capabilities=lspCaps, on_attach=lspMaps })
+      lsp["golangci_lint_ls"].setup({ capabilities=lspCaps, on_attach=lspMaps })
+      lsp["rust_analyzer"].setup({    capabilities=lspCaps, on_attach=lspMaps })
+      lsp["clangd"].setup({           capabilities=lspCaps, on_attach=lspMaps })
+      lsp["bashls"].setup({           capabilities=lspCaps, on_attach=lspMaps })
+      lsp["graphql"].setup({          capabilities=lspCaps, on_attach=lspMaps })
+      lsp["texlab"].setup({           capabilities=lspCaps, on_attach=lspMaps })
+      lsp["dockerls"].setup({         capabilities=lspCaps, on_attach=lspMaps })
+      lsp["docker_compose_language_service"].setup({ capabilities=lspCaps, on_attach=lspMaps })
       -- Non standard language settings:
       lsp.lua_ls.setup({
         capabilities = lspCaps,
