@@ -25,6 +25,7 @@ return {
         "graphql",
         "texlab",
         "clangd",
+        "marksman",
         "dockerls",
         "docker_compose_language_service",
         "rust_analyzer",
@@ -98,6 +99,7 @@ return {
       lsp["bashls"].setup({           capabilities=lspCaps, on_attach=lspMaps })
       lsp["graphql"].setup({          capabilities=lspCaps, on_attach=lspMaps })
       lsp["texlab"].setup({           capabilities=lspCaps, on_attach=lspMaps })
+      lsp["marksman"].setup({         capabilities=lspCaps, on_attach=lspMaps })
       lsp["dockerls"].setup({         capabilities=lspCaps, on_attach=lspMaps })
       lsp["docker_compose_language_service"].setup({ capabilities=lspCaps, on_attach=lspMaps })
       -- Non standard language settings:

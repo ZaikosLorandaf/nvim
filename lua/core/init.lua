@@ -42,3 +42,7 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
       vim.fn.setpos(".", save_cursor)
     end,
 })
+
+-- Quickly compile and preview files
+vim.keymap.set("n", "<leader>c", "<cmd>make<cr>")
+vim.keymap.set("n", "<leader>o", "<cmd>!opout %<cr>")
