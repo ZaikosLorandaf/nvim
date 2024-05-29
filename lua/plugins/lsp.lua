@@ -27,6 +27,7 @@ return {
         "clangd",
         "marksman",
         "dockerls",
+        "ruff_lsp",
         "docker_compose_language_service",
         "rust_analyzer",
       }
@@ -38,6 +39,7 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
+    veryLazy = true,
     dependencies = {
       "hrsh7th/nvim-cmp",
       "hrsh7th/cmp-nvim-lsp",
@@ -77,6 +79,9 @@ return {
         vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {buffer=0,
 					desc = "Go to the method implementation"})
 
+        vim.keymap.set("n", "gr", vim.lsp.buf.references, {buffer=0,
+					desc = "Go to references of the object"})
+
         vim.keymap.set("n", "<leader>fa", vim.lsp.buf.code_action, {buffer=0,
 					desc = ""})
         vim.keymap.set("n", "]d", vim.diagnostic.goto_next, {buffer=0,
@@ -85,23 +90,34 @@ return {
         vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, {buffer=0,
 					desc = "Go to the previous diagnostic/issue"})
 
-        vim.keymap.set("n", "H", vim.diagnostic.open_float, {buffer=0,
+        -- S is the same as cc, I'd rather use it for something more useful
+        vim.keymap.set("n", "S", vim.diagnostic.open_float, {buffer=0,
 					desc = "View diagnostics information in a floating window"})
 
       end
 
       -- Configure every lsp installed and managed by mason
       -- TODO: automate this with a global myServers table
-      lsp["gopls"].setup({            capabilities=lspCaps, on_attach=lspMaps })
-      lsp["golangci_lint_ls"].setup({ capabilities=lspCaps, on_attach=lspMaps })
-      lsp["rust_analyzer"].setup({    capabilities=lspCaps, on_attach=lspMaps })
-      lsp["clangd"].setup({           capabilities=lspCaps, on_attach=lspMaps })
-      lsp["bashls"].setup({           capabilities=lspCaps, on_attach=lspMaps })
-      lsp["graphql"].setup({          capabilities=lspCaps, on_attach=lspMaps })
-      lsp["texlab"].setup({           capabilities=lspCaps, on_attach=lspMaps })
-      lsp["marksman"].setup({         capabilities=lspCaps, on_attach=lspMaps })
-      lsp["dockerls"].setup({         capabilities=lspCaps, on_attach=lspMaps })
-      lsp["docker_compose_language_service"].setup({ capabilities=lspCaps, on_attach=lspMaps })
+      local myServers = {
+        "gopls",
+        "golangci_lint_ls",
+        "lua_ls",
+        "bashls",
+        "dockerls",
+        "docker_compose_language_service",
+        "graphql",
+        "texlab",
+        "ruff_lsp",
+        "clangd",
+        "marksman",
+      }
+      for _, server in ipairs(myServers) do
+        lsp[server].setup({
+          capabilities = lspCaps,
+          on_attach = lspMaps
+        })
+      end
+
       -- Non standard language settings:
       lsp.lua_ls.setup({
         capabilities = lspCaps,
@@ -121,8 +137,12 @@ return {
               }
             },
             workspace = {
+              checkThirdParty = false,
               library = vim.api.nvim_get_runtime_file("", true),
             },
+            telemetry = {
+              enable = false
+            }
           }
         }
       })
