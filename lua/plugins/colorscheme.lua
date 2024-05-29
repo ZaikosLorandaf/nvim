@@ -19,7 +19,6 @@ return { -- No nonsense, very stoic
             "gitignore",
             "mermaid",
             "markdown",
-            "latex",
             "rnoweb",
             "r",
             "rust",
