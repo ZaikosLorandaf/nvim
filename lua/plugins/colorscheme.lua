@@ -5,9 +5,31 @@ return { -- No nonsense, very stoic
       build = ":TSUpdate",
       config = function()
         local configs = require("nvim-treesitter.configs")
+---@diagnostic disable-next-line: missing-fields
         configs.setup({
+          -- List of languages in-> :h
           ensure_installed = {
-            "c", "go", "python", "yaml", "json", "lua", "vim", "graphql"
+            "c",
+            "go",
+            "bash",
+            "lua",
+            "python",
+            "vim",
+            "vimdoc",
+            "gitignore",
+            "mermaid",
+            "markdown",
+            "latex",
+            "rnoweb",
+            "r",
+            "rust",
+            "dockerfile",
+            "graphql",
+            "yaml",
+            "json",
+            "xml",
+            "sxhkdrc",
+            "zathurarc",
           },
           ignore_install = {
             "javascript", "typescript"

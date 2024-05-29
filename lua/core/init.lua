@@ -46,3 +46,10 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 -- Quickly compile and preview files
 vim.keymap.set("n", "<leader>c", "<cmd>make<cr>")
 vim.keymap.set("n", "<leader>o", "<cmd>!opout %<cr>")
+-- Make sure I don't accidentally delete with 'S' when not using an LSP:
+vim.keymap.set("n", "S", "<nop>")
+-- Stop hurting my pinky with <C-w>:
+vim.keymap.set("n", "<leader>w", "<C-w>")
+-- Quickly navigate between Tabs
+vim.keymap.set("n", "<Tab>", "<cmd>tabnext<cr>")
+vim.keymap.set("n", "<S-Tab>", "<cmd>tabprevious<cr>")
