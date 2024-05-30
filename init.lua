@@ -1,9 +1,9 @@
---  _       _ _     _             
--- (_)_ __ (_) |_  | |_   _  __ _ 
+--  _       _ _     _
+-- (_)_ __ (_) |_  | |_   _  __ _
 -- | | '_ \| | __| | | | | |/ _` |
 -- | | | | | | |_ _| | |_| | (_| |
 -- |_|_| |_|_|\__(_)_|\__,_|\__,_|
---                                
+--
 require("core")
 require("core.langmap")
 
@@ -23,7 +23,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     { import = "plugins" }, -- i.e. the lua/plugins directory
     -- add more subdirectories as needed
-  }, { 
+  }, {
     install = { colorscheme = { "no-clown-fiesta" }, }
   }, {
     checker = {
