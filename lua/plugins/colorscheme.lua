@@ -23,15 +23,16 @@ return { -- No nonsense, very stoic
             "r",
             "rust",
             "dockerfile",
-            "graphql",
             "yaml",
             "json",
             "xml",
             "sxhkdrc",
             "zathurarc",
+            "javascript",
           },
           ignore_install = {
-            "javascript", "typescript"
+            "graphql",
+            "typescript"
           },
           sync_install = false,
           highlight = {enable = true},

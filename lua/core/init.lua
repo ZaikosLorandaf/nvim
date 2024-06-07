@@ -1,6 +1,6 @@
 vim.g.mapleader=" "
 vim.opt.encoding="utf-8"
-vim.opt.wildmenu=true -- Show mathes with tab-completion
+vim.opt.wildmenu=true -- Show matches with tab-completion
 vim.opt.number=true
 vim.opt.relativenumber=true
 vim.opt.ruler=true
@@ -31,9 +31,9 @@ vim.g.netrw_bufsettings = "noma nomod nu nobl nowrap ro"
 vim.keymap.set("n", "<leader><leader>l", "<cmd>nohlsearch<cr>")
 
 -- Don't mess with pasted text
-vim.keymap.set("i", "<C-r>+","<C-r><C-o>+")
+vim.keymap.set("i", "<C-r>","<C-r><C-o>")
 
--- Remove trailing whitespace (exept current line to avoid moving cursor)
+-- Remove trailing whitespace (except current line to avoid moving cursor)
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     pattern = {"*"},
     callback = function()
@@ -45,11 +45,11 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 
 -- Quickly compile and preview files
 vim.keymap.set("n", "<leader>c", "<cmd>make<cr>")
-vim.keymap.set("n", "<leader>o", "<cmd>!opout %<cr>")
+-- vim.keymap.set("n", "<leader>o", "<cmd>!opout %<cr>")
 -- Make sure I don't accidentally delete with 'S' when not using an LSP:
 vim.keymap.set("n", "S", "<nop>")
 -- Stop hurting my pinky with <C-w>:
 vim.keymap.set("n", "<leader>w", "<C-w>")
 -- Quickly navigate between Tabs
 vim.keymap.set("n", "<Tab>", "<cmd>tabnext<cr>")
-vim.keymap.set("n", "<S-Tab>", "<cmd>tabprevious<cr>")
+vim.keymap.set("n", "<S-Tab>", "<cmd>tabnew<cr>")
