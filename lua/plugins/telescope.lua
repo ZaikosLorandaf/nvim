@@ -14,7 +14,7 @@ return {
 
   keys = {
     -- P.aruse F.iles
-    { "<leader>pv", '<cmd>lua require("telescope.builtin").find_files()<cr>' },
+    { "<leader>pf", '<cmd>lua require("telescope.builtin").find_files()<cr>' },
     -- P.aruse B.uffers
     { "<leader>pb", '<cmd>lua require("telescope.builtin").buffers()<cr>' },
     -- P.aruse with G.rep
