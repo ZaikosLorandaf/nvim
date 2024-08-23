@@ -25,17 +25,17 @@ return {
 			local myServers = {
 				-- LSPs:
 				"gopls",
-				"golangci_lint_ls",
+				-- "golangci_lint_ls",
 				"lua_ls",
 				"bashls",
-				"graphql",
-				"texlab",
+				-- "graphql",
+				-- "texlab",
 				"clangd",
-				"marksman",
+				-- "marksman",
 				"dockerls",
-				"ruff_lsp",
+				-- "ruff_lsp",
 				"docker_compose_language_service",
-				"rust_analyzer",
+				-- "rust_analyzer",
 			}
 			mlsp.setup({
 				ensure_installed = myServers,
@@ -141,7 +141,7 @@ return {
 				"bashls",
 				"dockerls",
 				"docker_compose_language_service",
-				"graphql",
+				-- "graphql",
 				"texlab",
 				"ruff_lsp",
 				"clangd",
@@ -215,8 +215,8 @@ return {
 				php = { "pretty-php" },
 				go = { "gofumpt", "gci", "goimports" },
 				yaml = { "yamlfix" },
-				graphql = { "prettierd" },
-				sql = { "sqlfmt" },
+				-- graphql = { "prettierd" },
+				-- sql = { "sqlfmt" },
 			},
 			-- Set up format-on-save
 			format_on_save = { timeout_ms = 500, lsp_format = "fallback" },
