@@ -3,6 +3,15 @@ return {
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
 		local filepath = "%m %f"
+		local mode_map = {
+			["n"] = "",
+			["v"] = "",
+			["V"] = "",
+			["i"] = "",
+			["R"] = "",
+			["c"] = "",
+			["t"] = "",
+		}
 
 		require("lualine").setup({
 			options = {
@@ -23,13 +32,18 @@ return {
 					winbar = 1000,
 				},
 			},
+
 			sections = {
-				lualine_a = { "mode" },
+				lualine_a = {
+					function()
+						return mode_map[vim.api.nvim_get_mode().mode] or "__"
+					end,
+				},
 				lualine_b = { "branch", "diff", "diagnostics" },
 				lualine_c = {},
 				lualine_x = { filepath },
 				lualine_y = { "encoding", "fileformat", "filetype" },
-				lualine_z = { "location" },
+				lualine_z = { "progress", "location" },
 			},
 			inactive_sections = {
 				lualine_a = {},

@@ -25,17 +25,17 @@ return {
 			local myServers = {
 				-- LSPs:
 				"gopls",
-				-- "golangci_lint_ls",
+				"golangci_lint_ls",
 				"lua_ls",
 				"bashls",
 				-- "graphql",
-				-- "texlab",
+				"texlab",
 				"clangd",
-				-- "marksman",
+				"marksman",
 				"dockerls",
-				-- "ruff_lsp",
+				"ruff_lsp",
 				"docker_compose_language_service",
-				-- "rust_analyzer",
+				"rust_analyzer",
 			}
 			mlsp.setup({
 				ensure_installed = myServers,
