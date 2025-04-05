@@ -24,18 +24,20 @@ return {
 			-- Global so it can be used by both mason and lspconfig ;)
 			local myServers = {
 				-- LSPs:
-				"gopls",
-				"golangci_lint_ls",
-				"lua_ls",
 				"bashls",
-				-- "graphql",
-				"texlab",
 				"clangd",
-				"marksman",
 				"dockerls",
-				"ruff_lsp",
 				"docker_compose_language_service",
+				"golangci_lint_ls",
+				"gopls",
+				-- "graphql",
+				"lua_ls",
+				"marksman",
+				"ruff",
+				"pyright",
 				"rust_analyzer",
+				"texlab",
+				"zls",
 			}
 			mlsp.setup({
 				ensure_installed = myServers,
@@ -135,17 +137,20 @@ return {
 
 			-- Configure every lsp installed and managed by mason
 			local myServers = {
-				"gopls",
-				"golangci_lint_ls",
-				"lua_ls",
 				"bashls",
+				"clangd",
 				"dockerls",
 				"docker_compose_language_service",
+				"golangci_lint_ls",
+				"gopls",
 				-- "graphql",
-				"texlab",
-				"ruff_lsp",
-				"clangd",
+				"lua_ls",
 				"marksman",
+				"pyright",
+				"ruff",
+				"rust_analyzer",
+				"texlab",
+				"zls",
 			}
 			for _, server in ipairs(myServers) do
 				lsp[server].setup({
@@ -188,6 +193,25 @@ return {
 					client.server_capabilities.documentRangeFormattingProvider = false
 					lspMaps()
 				end,
+			})
+			-- lsp.ruff.setup({
+			-- 	init_options = {
+			-- 		settings = {},
+			-- 	},
+			-- })
+
+			lsp.pyright.setup({
+				settings = {
+					pyright = {
+						disableOrganizeImports = true, -- Using Ruff
+					},
+					python = {
+						analysis = {
+							ignore = { "*" }, -- Using Ruff
+							typeCheckingMode = "off", -- Using mypy
+						},
+					},
+				},
 			})
 		end,
 	},
