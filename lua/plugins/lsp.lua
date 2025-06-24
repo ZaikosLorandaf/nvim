@@ -30,7 +30,8 @@ return {
 				"docker_compose_language_service",
 				"golangci_lint_ls",
 				"gopls",
-				-- "graphql",
+				"graphql",
+				"jdtls",
 				"lua_ls",
 				"marksman",
 				"ruff",
@@ -112,19 +113,19 @@ return {
 				)
 
 				vim.keymap.set("n", "<leader>fa", vim.lsp.buf.code_action, { buffer = 0, desc = "" })
-				vim.keymap.set(
-					"n",
-					"]d",
-					vim.diagnostic.goto_next,
-					{ buffer = 0, desc = "Go to the next diagnostic/issue" }
-				)
+				vim.keymap.set("n", "]d", function() -- GoTo Next diag.
+					vim.diagnostic.jump({
+						count = 1,
+						float = true,
+					})
+				end, { buffer = 0, desc = "Go to the next diagnostic/issue" })
 
-				vim.keymap.set(
-					"n",
-					"[d",
-					vim.diagnostic.goto_prev,
-					{ buffer = 0, desc = "Go to the previous diagnostic/issue" }
-				)
+				vim.keymap.set("n", "[d", function() -- GoTo Next diag.
+					vim.diagnostic.jump({
+						count = -1,
+						float = true,
+					})
+				end, { buffer = 0, desc = "Go to the previous diagnostic/issue" })
 
 				-- S is the same as cc, I'd rather use it for something more useful
 				vim.keymap.set(
@@ -143,7 +144,8 @@ return {
 				"docker_compose_language_service",
 				"golangci_lint_ls",
 				"gopls",
-				-- "graphql",
+				"graphql",
+				"jdtls",
 				"lua_ls",
 				"marksman",
 				"pyright",
@@ -168,7 +170,7 @@ return {
 						runtime = {
 							-- Tell the language server which version of Lua you're using
 							-- -- (most likely LuaJIT in the case of Neovim)
-							version = "LuaJIT",
+							version = "Lua5.4",
 						},
 						diagnostic = {
 							-- Get the language server to recognize the `vim` global
@@ -199,6 +201,13 @@ return {
 			-- 		settings = {},
 			-- 	},
 			-- })
+			lsp.zls.setup({
+				settings = {
+					zls = {
+						fmt_autosave = 0,
+					},
+				},
+			})
 
 			lsp.pyright.setup({
 				settings = {
@@ -222,7 +231,7 @@ return {
 		keys = {
 			{
 				-- Customize or remove this keymap to your liking
-				"<leader>f",
+				"<leader>fc",
 				function()
 					require("conform").format({ async = true, lsp_format = "fallback" })
 				end,
@@ -239,11 +248,11 @@ return {
 				php = { "pretty-php" },
 				go = { "gofumpt", "gci", "goimports" },
 				yaml = { "yamlfix" },
-				-- graphql = { "prettierd" },
-				-- sql = { "sqlfmt" },
+				graphql = { "prettierd" },
+				sql = { "sqlfmt" },
 			},
 			-- Set up format-on-save
-			format_on_save = { timeout_ms = 500, lsp_format = "fallback" },
+			-- format_on_save = { timeout_ms = 500, lsp_format = "fallback" },
 			-- Customize formatters
 			formatters = {
 				shfmt = {

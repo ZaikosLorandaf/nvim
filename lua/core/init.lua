@@ -9,10 +9,10 @@ vim.opt.laststatus = 0
 vim.opt.showmode = false
 vim.opt.splitbelow = true
 vim.opt.splitright = true
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
-vim.opt.conceallevel = 2
+-- vim.opt.conceallevel = 2
 vim.opt.foldmethod = "marker" --- For `{{{` & `}}}` folding
 vim.opt.complete:append("kspell")
 vim.opt.inccommand = "split"

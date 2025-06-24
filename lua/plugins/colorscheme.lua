@@ -16,26 +16,29 @@ return {
 					configs.setup({
 						-- List of languages in-> :h
 						ensure_installed = {
-							"c",
-							"go",
 							"bash",
+							"c",
+							"dockerfile",
+							"gitignore",
+							"go",
+							"json",
+              "java",
+							"javascript",
+							"sxhkdrc",
 							"lua",
+							"markdown",
+							"mermaid",
 							"python",
+							"r",
+							"rnoweb",
+							"rust",
 							"vim",
 							"vimdoc",
-							"gitignore",
-							"mermaid",
-							"markdown",
-							"rnoweb",
-							"r",
-							"rust",
-							"dockerfile",
 							"yaml",
-							"json",
 							"xml",
+              -- others
 							"sxhkdrc",
 							"zathurarc",
-							"javascript",
 						},
 						ignore_install = {
 							"graphql",
@@ -279,7 +282,7 @@ return {
 				},
 			})
 			local fullbg = "#111a1f"
-			vim.cmd.colorscheme("no-clown-fiesta")
+			-- vim.cmd.colorscheme("no-clown-fiesta")
 			vim.api.nvim_set_hl(0, "LineNr", { fg = "#727272" })
 			-- vim.api.nvim_set_hl(0,"Visual",{bg="#171717"})
 			-- vim.api.nvim_set_hl(0,"Visual",{bg="#829e9c"})

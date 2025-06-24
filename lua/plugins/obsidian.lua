@@ -18,12 +18,10 @@ return {
 		-- see below for full list of optional dependencies
 	},
 	opts = {
-		workspaces = {
-			{
+		workspaces = { {
 				name = "personal",
 				path = "~/Workspace/zaikosvault/personal",
-			},
-			{
+			}, {
 				name = "school",
 				path = "~/Workspace/zaikosvault/school",
 			},
@@ -39,6 +37,11 @@ return {
 			end,
 		},
 	},
+
+    -- config = function()
+    --     vim.opt_local.conceallevel = 2
+    -- end,
+
 
 	-- Optional, customize how note IDs are generated given an optional title.
 	---@param title string|?

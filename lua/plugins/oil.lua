@@ -24,11 +24,11 @@ return {
       desc = "Toggle floating Oil window",
     },
 
-    { -- Open parent directory
-      "-",
-      "<cmd>Oil<CR>",
-      mode = "n",
-      desc = "Open parent directory",
-    },
+    -- { -- Open parent directory
+    --   "-",
+    --   "<cmd>Oil<CR>",
+    --   mode = "n",
+    --   desc = "Open parent directory",
+    -- },
   },
 }
