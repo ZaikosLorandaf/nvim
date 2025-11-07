@@ -20,10 +20,10 @@ return {
         "neovim/nvim-lspconfig",
         lazy = false,
         -- event = { "BufReadPre", "BufNewFile" },
-		dependencies = {
-			"hrsh7th/nvim-cmp",
-			"hrsh7th/cmp-nvim-lsp",
-			"nvim-telescope/telescope.nvim",
+        dependencies = {
+            "hrsh7th/nvim-cmp",
+            "hrsh7th/cmp-nvim-lsp",
+            "nvim-telescope/telescope.nvim",
         },
         opts = {
             ui = {
@@ -47,76 +47,12 @@ return {
             },
             underline = true,
         }),
-        -- lspMaps = function()
-            vim.keymap.set("n", "K", vim.lsp.buf.hover, {
-                buffer = 0,
-                desc = "Show object description on hover",
-            }),
-
-            vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, {
-                buffer = 0,
-                desc = "Rename object across all occurences",
-            }),
-
-            vim.keymap.set("n", "gd", vim.lsp.buf.definition, {
-                buffer = 0,
-                desc = "Go to the location where the object is defined",
-            }),
-
-            vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, {
-                buffer = 0,
-                desc = "Go to the definition of the objects type",
-            }),
-
-            vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {
-                buffer = 0,
-                desc = "Go to the method implementation",
-            }),
-
-            vim.keymap.set("n", "gr", vim.lsp.buf.references, {
-                buffer = 0,
-                desc = "Go to references of the object",
-            }),
-
-            vim.keymap.set("n", "<leader>fa", vim.lsp.buf.code_action, {
-                buffer = 0,
-                desc = "",
-            }),
-
-            vim.keymap.set("n", "]d",
-                function() -- GoTo Next diag.
-                    vim.diagnostic.jump({
-                        count = 1,
-                        float = true,
-                    })
-                end, {
-                    buffer = 0,
-                    desc = "Go to the next diagnostic/issue",
-                }),
-
-            vim.keymap.set("n", "[d",
-                function() -- GoTo Next diag.
-                    vim.diagnostic.jump({
-                        count = -1,
-                        float = true,
-                    })
-                end, {
-                    buffer = 0,
-                    desc = "Go to the previous diagnostic/issue",
-                }),
-
-            -- S is the same as cc, I'd rather use it for something more useful
-            vim.keymap.set("n", "S", vim.diagnostic.open_float, {
-                buffer = 0,
-                desc = "View diagnostics information in a floating window",
-            }),
-        -- end,
 
         config = function()
-            local lspCaps = require("cmp_nvim_lsp").default_capabilities()
             local myServers = {
                 "bashls",
                 "clangd",
+                "denols",
                 "dockerls",
                 "docker_compose_language_service",
                 "golangci_lint_ls",
@@ -131,6 +67,73 @@ return {
                 "texlab",
                 "zls",
             }
+            local lspCaps = require("cmp_nvim_lsp").default_capabilities()
+            -- KeyBindings for lsp
+            local lspMaps = function()
+                vim.keymap.set("n", "K", vim.lsp.buf.hover, {
+                    buffer = 0,
+                    desc = "Show object description on hover",
+                })
+
+                vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, {
+                    buffer = 0,
+                    desc = "Rename object across all occurences",
+                })
+
+                vim.keymap.set("n", "gd", vim.lsp.buf.definition, {
+                    buffer = 0,
+                    desc = "Go to the location where the object is defined",
+                })
+
+                vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, {
+                    buffer = 0,
+                    desc = "Go to the definition of the objects type",
+                })
+
+                vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {
+                    buffer = 0,
+                    desc = "Go to the method implementation",
+                })
+
+                vim.keymap.set("n", "gr", vim.lsp.buf.references, {
+                    buffer = 0,
+                    desc = "Go to references of the object",
+                })
+
+                vim.keymap.set("n", "<leader>fa", vim.lsp.buf.code_action, {
+                    buffer = 0,
+                    desc = "",
+                })
+
+                vim.keymap.set("n", "]d",
+                    function() -- GoTo Next diag.
+                        vim.diagnostic.jump({
+                            count = 1,
+                            float = true,
+                        })
+                    end, {
+                        buffer = 0,
+                        desc = "Go to the next diagnostic/issue",
+                    })
+
+                vim.keymap.set("n", "[d",
+                    function() -- GoTo Next diag.
+                        vim.diagnostic.jump({
+                            count = -1,
+                            float = true,
+                        })
+                    end, {
+                        buffer = 0,
+                        desc = "Go to the previous diagnostic/issue",
+                    })
+
+                -- S is the same as cc, I'd rather use it for something more useful
+                vim.keymap.set("n", "S", vim.diagnostic.open_float, {
+                    buffer = 0,
+                    desc = "View diagnostics information in a floating window",
+                })
+            end
+
             require("mason").setup()
             require("mason-lspconfig").setup({
                 ensure_installed = myServers,
@@ -138,8 +141,11 @@ return {
             })
 
             for _, server in ipairs(myServers) do
-                capabilities = lspCaps
-                on_attach = lspMaps
+                vim.lsp.enable(server)
+                vim.lsp.config(server, {
+                    capabilities = lspCaps,
+                    on_attach = lspMaps
+                })
             end
         end,
 
@@ -187,62 +193,3 @@ return {
         end,
     },
 }
-
-
--- vim.lsp.lua_ls.setup({
---     capabilities = lspCaps,
---     on_attach = lspMaps,
---     settings = {
---         Lua = {
---             runtime = {
---                 -- Tell the language server which version of Lua you're using
---                 -- -- (most likely LuaJIT in the case of Neovim)
---                 version = "Lua5.4",
---             },
---             diagnostic = {
---                 -- Get the language server to recognize the `vim` global
---                 globals = {
---                     "vim",
---                     "require",
---                 },
---             },
---             workspace = {
---                 checkThirdParty = false,
---                 library = vim.api.nvim_get_runtime_file("", true),
---             },
---             telemetry = {
---                 enable = false,
---             },
---         },
---     },
--- })
---
--- vim.lsp.clangd.setup({
---     on_attach = function(client)
---         client.server_capabilities.documentFormattingProvider = false
---         client.server_capabilities.documentRangeFormattingProvider = false
---         lspMaps()
---     end,
--- })
---
--- vim.lsp.zls.setup({
---     settings = {
---         zls = {
---             fmt_autosave = 0,
---         },
---     },
--- })
---
--- vim.lsp.pyright.setup({
---     settings = {
---         pyright = {
---             disableOrganizeImports = true, -- Using Ruff
---         },
---         python = {
---             analysis = {
---                 ignore = { "*" }, -- Using Ruff
---                 typeCheckingMode = "off", -- Using mypy
---             },
---         },
---     },
--- })

@@ -16,8 +16,10 @@ vim.opt.expandtab = true
 vim.opt.foldmethod = "marker" --- For `{{{` & `}}}` folding
 vim.opt.complete:append("kspell")
 vim.opt.inccommand = "split"
-vim.opt.spelllang = "fr" -- why does french exist...
-vim.api.nvim_set_keymap("n", "Y", "y$", {}) -- What should have been `Y`
+vim.opt.winborder = "rounded"
+vim.opt.spelllang = "fr"                                 -- why does french exist...
+
+vim.api.nvim_set_keymap("n", "Y", "y$", {})              -- What should have been `Y`
 vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", {}) -- terminal mode Esc
 
 vim.keymap.set("v", "<s-l>", ":m '>+1<cr>gv=gv")
@@ -36,14 +38,14 @@ vim.keymap.set("i", "<C-r>", "<C-r><C-o>")
 
 -- Remove trailing whitespace (except current line to avoid moving cursor)
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-	pattern = { "*" },
-	callback = function()
-		local save_cursor = vim.fn.getpos(".")
-		pcall(function()
-			vim.cmd([[%s/\s\+$//e]])
-		end)
-		vim.fn.setpos(".", save_cursor)
-	end,
+    pattern = { "*" },
+    callback = function()
+        local save_cursor = vim.fn.getpos(".")
+        pcall(function()
+            vim.cmd([[%s/\s\+$//e]])
+        end)
+        vim.fn.setpos(".", save_cursor)
+    end,
 })
 
 -- Quickly compile and preview files
