@@ -53,7 +53,7 @@ return {
         },
         config = function()
             require("rose-pine").setup({
-                variant = "auto", -- auto, main, moon, or dawn
+                variant = "auto",      -- auto, main, moon, or dawn
                 dark_variant = "main", -- main, moon, or dawn
                 dim_inactive_windows = false,
                 extend_background_behind_borders = true,
@@ -61,7 +61,7 @@ return {
                 enable = {
                     terminal = true,
                     legacy_highlights = true, -- Improve compatibility for previous versions of Neovim
-                    migrations = true, -- Handle deprecated options automatically
+                    migrations = true,        -- Handle deprecated options automatically
                 },
 
                 styles = {
@@ -189,8 +189,9 @@ return {
             },
         },
         version = false,
-        -- lazy = false,
-        -- priority = 1000, -- make sure to load this vefore all others
+        lazy = true,
+        priority = 1000, -- make sure to load this vefore all others
+
         -- Optional configs
         config = function()
             require("everforest").setup({
@@ -266,7 +267,8 @@ return {
             },
         },
         lazy = true,
-        -- priority = 1000,
+        priority = 1000,
+
         config = function()
             require("no-clown-fiesta").setup({
                 transparent = true,

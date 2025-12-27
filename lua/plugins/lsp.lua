@@ -21,8 +21,8 @@ return {
         lazy = false,
         -- event = { "BufReadPre", "BufNewFile" },
         dependencies = {
-            "hrsh7th/nvim-cmp",
-            "hrsh7th/cmp-nvim-lsp",
+            -- "hrsh7th/nvim-cmp",
+            -- "hrsh7th/cmp-nvim-lsp",
             "nvim-telescope/telescope.nvim",
         },
         opts = {
@@ -65,9 +65,10 @@ return {
                 "ruff",
                 "rust_analyzer",
                 "texlab",
+                "tinymist",
                 "zls",
             }
-            local lspCaps = require("cmp_nvim_lsp").default_capabilities()
+            -- local lspCaps = require("cmp_nvim_lsp").default_capabilities()
             -- KeyBindings for lsp
             local lspMaps = function()
                 vim.keymap.set("n", "K", vim.lsp.buf.hover, {
@@ -143,7 +144,7 @@ return {
             for _, server in ipairs(myServers) do
                 vim.lsp.enable(server)
                 vim.lsp.config(server, {
-                    capabilities = lspCaps,
+                    -- capabilities = lspCaps,
                     on_attach = lspMaps
                 })
             end
@@ -159,19 +160,25 @@ return {
                 -- Customize or remove this keymap to your liking
                 "<leader>fc",
                 function()
-                    require("conform").format({ async = true, lsp_format = "fallback" })
+                    -- require("conform").format({ async = true, lsp_format = "fallback" })
+                    require("conform").format({ async = true, lsp_fallback = true })
                 end,
                 mode = "",
                 desc = "Format buffer",
             },
         },
+        dependencies = {
+            "nvim-lspconfig",
+        },
         -- Everything in opts will be passed to setup()
         opts = {
             -- Define your formatters
             formatters_by_ft = {
+                c = { "clang_format" },
+                cpp = { "clang_format" },
                 lua = { "stylua" },
                 javascript = { "prettierd" },
-                php = { "pretty-php" },
+                php = { "pretty_php" },
                 go = { "gofumpt", "gci", "goimports" },
                 yaml = { "yamlfix" },
                 graphql = { "prettierd" },
@@ -182,9 +189,11 @@ return {
 
             -- Customize formatters
             formatters = {
-                shfmt = {
-                    prepend_args = { "-i", "2" },
+                shfmt = { prepend_args = { "-i", "2" } },
+                clang_format = {
+                    prepend_args = { '--style=file', '--fallback-style=llvm' },
                 },
+
             },
         },
         init = function()
