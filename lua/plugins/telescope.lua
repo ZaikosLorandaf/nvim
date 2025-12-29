@@ -1,8 +1,9 @@
 return {
 	"nvim-telescope/telescope.nvim",
-	branch = "0.1.x",
+	tag = "latest",
 	dependencies = {
 		{ "nvim-lua/plenary.nvim" },
+		-- { "sharkdp/fd" },
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		{ "stevearc/dressing.nvim" },
 	},
