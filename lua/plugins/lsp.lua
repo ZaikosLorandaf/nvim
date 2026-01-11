@@ -33,6 +33,83 @@ return {
 				"tinymist",
 				"zls",
 			},
+
+			servers = {
+				["*"] = {
+					keys = {
+						{
+							"K",
+							vim.lsp.buf.hover,
+							buffer = 0,
+							desc = "Show object description on hover",
+						},
+						{
+							"S",
+							vim.diagnostic.open_float,
+							buffer = 0,
+							desc = "View diagnostics information in a floating window",
+						},
+						{
+							"<leader>r",
+							vim.lsp.buf.rename,
+							buffer = 0,
+							desc = "Rename object across all occurences",
+						},
+						{
+							"gd",
+							vim.lsp.buf.definition,
+							buffer = 0,
+							desc = "Go to the location where the object is defined",
+						},
+						{
+							"gt",
+							vim.lsp.buf.type_definition,
+							buffer = 0,
+							desc = "Go to the definition of the objects type",
+						},
+						{
+							"gi",
+							vim.lsp.buf.implementation,
+							buffer = 0,
+							desc = "Go to the method implementation",
+						},
+						{
+							"gr",
+							vim.lsp.buf.references,
+							buffer = 0,
+							desc = "Go to references of the object",
+						},
+						{
+							"<leader>fa",
+							vim.lsp.buf.code_action,
+							buffer = 0,
+							desc = "",
+						},
+						{
+							"]d",
+							function() -- GoTo Next diag.
+								vim.diagnostic.jump({
+									count = 1,
+									float = true,
+								})
+							end,
+							buffer = 0,
+							desc = "Go to the next diagnostic/issue",
+						},
+						{
+							"[d",
+							function() -- GoTo Prev diag.
+								vim.diagnostic.jump({
+									count = -1,
+									float = true,
+								})
+							end,
+							buffer = 0,
+							desc = "Go to the previous diagnostic/issue",
+						},
+					},
+				},
+			},
 		},
 	},
 	{
@@ -71,6 +148,7 @@ return {
 		"stevearc/conform.nvim",
 		event = { "BufWritePre" },
 		cmd = { "ConformInfo" },
+		lazy = true,
 		keys = {
 			{
 				"<leader>fc",
@@ -112,80 +190,3 @@ return {
 		end,
 	},
 }
-
--- servers = {
--- 	["*"] = {
--- 		keys = {
--- 			{
--- 				"K",
--- 				vim.lsp.buf.hover,
--- 				buffer = 0,
--- 				desc = "Show object description on hover",
--- 			},
--- 			{
--- 				"S",
--- 				vim.diagnostic.open_float,
--- 				buffer = 0,
--- 				desc = "View diagnostics information in a floating window",
--- 			},
--- 			{
--- 				"<leader>r",
--- 				vim.lsp.buf.rename,
--- 				buffer = 0,
--- 				desc = "Rename object across all occurences",
--- 			},
--- 			{
--- 				"gd",
--- 				vim.lsp.buf.definition,
--- 				buffer = 0,
--- 				desc = "Go to the location where the object is defined",
--- 			},
--- 			{
--- 				"gt",
--- 				vim.lsp.buf.type_definition,
--- 				buffer = 0,
--- 				desc = "Go to the definition of the objects type",
--- 			},
--- 			{
--- 				"gi",
--- 				vim.lsp.buf.implementation,
--- 				buffer = 0,
--- 				desc = "Go to the method implementation",
--- 			},
--- 			{
--- 				"gr",
--- 				vim.lsp.buf.references,
--- 				buffer = 0,
--- 				desc = "Go to references of the object",
--- 			},
--- 			{
--- 				"<leader>fa",
--- 				vim.lsp.buf.code_action,
--- 				buffer = 0,
--- 				desc = "",
--- 			},
--- 			{
--- 				"]d",
--- 				function() -- GoTo Next diag.
--- 					vim.diagnostic.jump({
--- 						count = 1,
--- 						float = true,
--- 					})
--- 				end,
--- 				buffer = 0,
--- 				desc = "Go to the next diagnostic/issue",
--- 			},
--- 			{
--- 				"[d",
--- 				function() -- GoTo Prev diag.
--- 					vim.diagnostic.jump({
--- 						count = -1,
--- 						float = true,
--- 					})
--- 				end,
--- 				buffer = 0,
--- 				desc = "Go to the previous diagnostic/issue",
--- 			},
--- 		},
--- 	},
--- },

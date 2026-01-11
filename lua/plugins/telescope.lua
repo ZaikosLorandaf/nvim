@@ -1,17 +1,29 @@
 return {
 	"nvim-telescope/telescope.nvim",
-	tag = "latest",
+	tag = "v0.2.0",
+	lazy = true,
 	dependencies = {
 		{ "nvim-lua/plenary.nvim" },
-		-- { "sharkdp/fd" },
+		{ "sharkdp/fd" },
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-		{ "stevearc/dressing.nvim" },
+		-- { "stevearc/dressing.nvim" },
 	},
+
 	config = function()
 		local telescope = require("telescope")
 		local actions = require("telescope.actions")
 		telescope.load_extension("fzf")
 	end,
+
+	require("telescope").setup({
+		defaults = {
+			mappings = {
+				i = {
+					["<C-u>"] = false,
+				},
+			},
+		},
+	}),
 
 	keys = {
 		-- P.aruse F.iles

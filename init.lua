@@ -44,7 +44,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({ import = "plugins" }, {
 	install = {
 		missing = true,
-		-- colorscheme = { "rose-pine" }
+		colorscheme = { "rose-pine" }
 	},
 	checker = {
 		enabled = true,
@@ -69,3 +69,4 @@ require("lazy").setup({ import = "plugins" }, {
 	-- 	},
 	-- },
 })
+vim.cmd.colorscheme("rose-pine-moon")
